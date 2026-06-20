@@ -14,7 +14,7 @@ LOG="/tmp/playdate_sim.log"
 
 cd "$HERE"
 pkill -9 -f "MacOS/Playdate Simulator" 2>/dev/null || true
-pdc source HelloWorld.pdx
-echo "compiled -> HelloWorld.pdx ; log -> $LOG"
+pdc source LouisEscapes.pdx
+echo "compiled -> LouisEscapes.pdx ; log -> $LOG"
 : > "$LOG"
-exec script -q "$LOG" "$SIM" HelloWorld.pdx
+exec script -q "$LOG" "$SIM" LouisEscapes.pdx

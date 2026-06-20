@@ -1,0 +1,7 @@
+name=Louis Escapes
+author=aeagle
+description=Louis Escapes — a Playdate game.
+bundleID=com.aeagle.louisescapes
+version=1.0
+buildNumber=1
+imagePath=launcher
