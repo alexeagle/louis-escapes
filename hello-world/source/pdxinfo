@@ -1,0 +1,6 @@
+name=Hello World
+author=aeagle
+description=The simplest possible Playdate hello world.
+bundleID=com.aeagle.helloworld
+version=1.0
+buildNumber=1

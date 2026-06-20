@@ -1,0 +1,72 @@
+# Playdate SDK 3.0.6 Documentation
+
+> Complete developer documentation for Panic's Playdate handheld game console (SDK
+> version 3.0.6). Playdate is a 1-bit (black & white), 400×240 display device with a
+> d-pad, two buttons, and a unique mechanical **crank**. Games are written primarily in
+> **Lua** (easiest, recommended for most games) or **C** (for performance-critical code).
+> This file is a DIY llms.txt index; the linked Markdown files contain the full,
+> agent-readable API reference and guides needed to build a complete game.
+
+## How to make a game (start here)
+
+An agent building a Playdate game should read these sections of `playdate-sdk-3.0.6-lua.md`
+in order:
+
+1. **What is Playdate?** — hardware: 400×240 1-bit display, 30 fps target, d-pad, A/B, crank, accelerometer.
+2. **Writing a game** — project structure, the required `main.lua`, `pdxinfo` metadata, and compiling a `.pdx` with the `pdc` compiler.
+3. **Game lifecycle / Game flow** — the core loop: define `playdate.update()` (called every frame), call `playdate.graphics.*` to draw, and `playdate.timer.updateTimers()` / sprite updates each frame.
+4. **Graphics** — drawing, images, sprites, fonts, tilemaps, animation. This is the bulk of any game.
+5. **Buttons / Crank / Accelerometer** — reading input.
+6. **Sound** — sound effects and music.
+7. **Sprites, Timers, Geometry** — collision, movement, and scheduling helpers.
+
+Minimal game skeleton (`main.lua`):
+
+```lua
+import "CoreLibs/graphics"
+import "CoreLibs/sprites"
+import "CoreLibs/timer"
+
+local gfx = playdate.graphics
+
+function playdate.update()
+    gfx.clear()
+    gfx.drawText("Hello, Playdate!", 10, 10)
+    playdate.timer.updateTimers()
+    gfx.sprite.update()
+end
+```
+
+## Full documentation (Lua)
+
+`playdate-sdk-3.0.6-lua.md` — primary reference for building games. Sections:
+
+- 1. What is Playdate?
+- 2. Contents of the SDK
+- 3. Installation
+- 4. Writing a game (project layout, main.lua, pdxinfo, compiling)
+- 5. Developing in Lua
+- 6. Developing in C (overview)
+- 7. API reference — full Lua API:
+  - SDK Lua enhancements · System & Game Metadata · Game flow · Game lifecycle · System Menu
+  - Localization · Accessibility · Accelerometer · Buttons · Crank · Input Handlers · Device Auto Lock
+  - Date & Time · Debugging · Profiling · Display · Easing functions · Files · Geometry
+  - **Graphics** (images, sprites, fonts, tilemaps, animation) · JSON · Keyboard · Math · Networking
+  - Pathfinding · Power · Simulator-only · **Sound** · Strings · **Timers** · Frame timers
+  - UI components · Serial communication · Playdate Mirror · Garbage collection
+- 8. Hidden Gems · 9. Getting Help · 10. Legal information
+
+## Full documentation (C)
+
+`playdate-sdk-3.0.6-c.md` — C API reference, for performance-critical code or C-only games. Sections:
+
+- 1. About the C API · 2. Prerequisites · 3. IDEs · 4. Command line · 5. Building on Windows
+- 6. Game Initialization (the `eventHandler` entry point and `kEventInit`)
+- 7. API reference (full C API mirroring the Lua one)
+- 8. Performance Considerations · 9. Getting Help · 10. Legal information
+
+## Source / local mirror
+
+- Generated from the offline HTML mirror in `playdate-sdk-3.0.6/` (open `index.html` to browse).
+- Upstream: https://sdk.play.date/3.0.6/ — "Inside Playdate" (Lua) and "Inside Playdate with C".
+- Additional help: https://help.play.date/ · Developer forum: https://devforum.play.date/
